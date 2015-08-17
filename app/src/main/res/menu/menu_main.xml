@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="be.hogent.examen2014_1e_zit.activities.MainActivity">
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <!-- TODO: OPDRACHT 4.1  voeg hier de code toe voor de refresh button in de action bar -->
+    <item android:id="@+id/refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:title="@string/refresh"
+        android:showAsAction="ifRoom"
+        />
+</menu>
