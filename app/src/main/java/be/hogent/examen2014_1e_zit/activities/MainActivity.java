@@ -46,6 +46,7 @@ public class MainActivity extends Activity implements SubredditsListener{
      */
     public static final String SUBREDDITS_TAG = "be.hogent.examen2014_1e_zit.SUBREDDITS";
 
+    public static final String URL = "http://www.reddit.com/subreddits/popular.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,17 @@ public class MainActivity extends Activity implements SubredditsListener{
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return true;
+
+        if(item.getItemId() == R.id.refresh){
+            try {
+                SubredditsDownloader downloader = new SubredditsDownloader(this);
+                downloader.download(new URL(URL));
+            } catch (MalformedURLException e) {
+                Log.e(TAG, "malformed url: " + e);
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -94,7 +105,12 @@ public class MainActivity extends Activity implements SubredditsListener{
      */
     @Override
     public void downloadCompleted(List<SubRedditData> subRedditDatas) {
-
+        new AsyncTask<List<SubRedditData>, Void, Void>() {
+            @Override
+            protected Void doInBackground(List<SubRedditData>... params) {
+                return null;
+            }
+        };
 
     }
 
